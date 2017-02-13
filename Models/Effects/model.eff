@@ -3,6 +3,69 @@
   <inherits-from>Effects/model-combined-deferred</inherits-from>
 
   <parameters>
-    <ambient-correction type="float">0.0</ambient-correction>
+  
+    <ambient-correction>0</ambient-correction>
+    <!--<normalmap-enabled type="int">1</normalmap-enabled>
+
+    <texture n="2">
+      <image>Aircraft/Bergfalke/Models/Effects/normalmap.png</image>
+      <filter>linear-mipmap-linear</filter>
+      <internal-format>normalized</internal-format>
+    </texture>-->
   </parameters>
+
+  <!-- Generate tangent & binormal and pass them to the normal map effect -->
+
+ <!-- <generate>
+    <tangent type="int">6</tangent>
+    <binormal type="int">7</binormal>
+  </generate>
+
+  <technique n="4">
+    <pass>
+    <program>
+      <attribute>
+        <name>tangent</name>
+        <index>6</index>
+      </attribute>
+      <attribute>
+        <name>binormal</name>
+        <index>7</index>
+      </attribute>
+    </program>
+    </pass>
+  </technique>
+
+  <technique n="7">
+    <pass>
+    <program>
+      <attribute>
+        <name>tangent</name>
+        <index>6</index>
+      </attribute>
+      <attribute>
+        <name>binormal</name>
+        <index>7</index>
+      </attribute>
+    </program>
+    </pass>
+  </technique>
+
+  <technique n="9">
+    <pass>
+    <program>
+      <attribute>
+        <name>tangent</name>
+        <index>6</index>
+      </attribute>
+      <attribute>
+        <name>binormal</name>
+        <index>7</index>
+      </attribute>
+    </program>
+    </pass>
+  </technique>-->
+
+  
+  
 </PropertyList>
