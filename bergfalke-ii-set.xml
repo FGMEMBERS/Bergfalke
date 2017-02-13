@@ -1,0 +1,556 @@
+<?xml version="1.0"?>
+<!--
+************************************************************************
+Yasim Schleicher ASW28 Glider
+
+copyright 2010 Patrice Poly; 2016/17 D-ECHO
+************************************************************************
+-->
+
+<PropertyList>
+
+    <sim>
+
+        <description>Scheibe Bergfalke II/55</description>
+        <author>Patrice Poly, D-ECHO</author>
+        <status>early-production</status>
+        <aircraft-version>201701</aircraft-version>
+        
+        
+        <flight-model archive="y">yasim</flight-model>
+        <aero archive="y">bergfalke-ii</aero>
+    
+        <startup>
+                <splash-texture>Aircraft/Bergfalke/splash.png</splash-texture>
+        </startup>
+
+
+        <model>
+            <path archive="y">Aircraft/Bergfalke/Models/bergfalkeii.xml</path>
+            <livery>
+                <file type="string"></file>
+            </livery>
+        </model>
+        <multiplay>
+            <chat_display>1</chat_display>
+            <generic>
+                <int   n="0"  type="int">  0 </int>                                         <!--  0 immat -->
+                <int   n="1"  type="int">  0 </int>                                         <!--  1 immat -->
+                <int   n="2"  type="int">  0 </int>                                         <!--  2 immat -->
+                <int   n="3"  type="int">  0 </int>                                         <!--  3 immat -->
+                <int   n="4"  type="int">  0 </int>                                         <!--  4 immat -->
+                <int   n="5"  type="int">  0 </int>                                         <!--  5 immat -->
+                <int   n="6"  type="int"  alias="/sim/model/livery/show-immat"/>            <!--  6 Show immat -->
+                <int   n="7"  type="int"  alias="/controls/smoke"/>                         <!--  7 Smoke -->
+                <int   n="8"  type="int"  alias="/gear/gear[0]/wow/"/>  
+                <int   n="9"  type="int"  alias="/gear/gear[1]/wow/"/>  
+                <int   n="11" type="int"  alias="/gear/gear[2]/wow/"/>                      <!-- 10 seems to be reserved for bombable, so we use 11 here -->
+                <float n="0"  alias="/sim/model/door-positions/canopyF/position-norm"/>     <!-- 0 Canopy Front     -->
+                <float n="1"  alias="/sim/model/door-positions/canopyFJ/position-norm"/>    <!-- 1 Canopy Front JETTISON-->
+                <float n="2"  alias="/sim/model/door-positions/frontwin/position-norm"/>    <!-- 2 Window Front     -->
+                <float n="3"  alias="/sim/model/door-positions/rearwin/position-norm"/>     <!-- 3 Window Rear      -->
+                <float n="4"  alias="/controls/flight/elevator-trim"/>                      <!-- 4 Elevator trim    -->
+                <float n="5"  alias="/gear/gear[0]/rollspeed-ms"/>
+                <float n="6"  alias="/gear/gear[1]/rollspeed-ms"/>
+                <float n="7"  alias="/gear/gear[2]/rollspeed-ms"/>
+                <float n="8"  alias="/surface-positions/speedbrake-pos-norm"/>
+                <!-- For Bombable -->
+                <int   n="10" type="int"/>
+                <string n="9" type="string"/>
+            </generic>
+        </multiplay>
+
+        <sound>
+                <path>Sounds/sound.xml</path>
+        </sound>
+    
+        <weight n="0">
+            <name type="string">Pilot</name>
+            <weight-lb>140</weight-lb>
+            <max-lb>200</max-lb>
+            <min-lb>100</min-lb>
+        </weight>
+        <weight n="1">
+            <name type="string">Copilot</name>
+            <weight-lb>0</weight-lb>
+            <max-lb>200</max-lb>
+            <min-lb>0</min-lb>
+        </weight>
+        <help>
+            <title>Scheibe Bergfalke II/55</title>
+            <key>
+                    <name>Ctrl-w</name>
+                    <desc>Place winch 1000m in front of aircraft</desc>
+            </key>
+            <key>
+                    <name>W</name>
+                    <desc>Toggle winch hook</desc>
+            </key>
+            <key>
+                    <name>w</name>
+                    <desc>Increase winch speed</desc>
+            </key>
+            <key>
+                    <name>Ctrl-o</name>
+                    <desc>Find aircraft for aerotow</desc>
+            </key>
+            <key>
+                    <name>o</name>
+                    <desc>Lock aerotow hook</desc>
+            </key>
+            <key>
+                    <name>O</name>
+                    <desc>Open aerotow hook</desc>
+            </key>
+            <text>
+                    === General Help ===
+                    - "Throttle" axis (or throttle keys) are connected to the glider's airbrake.
+                    - You can take off using a winch or use another aircraft as an aerotow.
+                    - The Walker uses e (E) and d(D) for walking instead of w and s!!!!
+
+                    === Winch Takeoff Procedure ===
+                    1. Retract speed brake (full "throttle")
+                    2. Press Ctrl-w to place winch.
+                    3. Press Shift-w to start winching.
+                    4. Control the winch speed throughout the entire launch. Shift-w makes the winch run faster, w makes it run slower.
+                    5. Keep wings level and gently lift the nose to take off once above the stall speed.
+                    6. When at appropriate alitude, press 'o' to release the cable.
+                    7. Fly!
+
+                    === Aerotow Takeoff Procedure ===
+                    1. Retract speed brake (full "throttle")
+                    2. Place another aerotow aircraft in front of your glider (multi-player).
+                    3. Press 'o' to hook to the aerotow.
+                    4. Ask the other aircraft to take off :).
+                    5. Keep wings level and follow the aircraft until after takeoff..
+                    6. When at appropriate alitude, press 'o' to release the cable.
+                    7. Fly!
+
+                    === Ground handling ===
+                    This aircraft has some features to help with ground handling:
+
+                    - When pressing "Toggle assiting gears" the aircraft gets levelled around the x-axes as if someone was holding your wing.
+                    - When pressing "Toggle ground handling", two features are enanled to pull the aircraft around on the ground:
+                    1. All rudder inputs are copied to a thruster, as if someone was pulling your wing so the aircraft turns.
+                    2. All throttle inputs cause your aircraft to taxi, as if someone (or a car) was pulling/pushing it.
+                    When there is somebody with a follow-me around, you can connect to it by pressing Ctrl+o (release: Ctrl+shift+o) so he can carry you around the airport
+                    or even tow you into the air! (also check the Aerotow Settings therefore).
+            </text>
+        </help>
+
+        <menubar>
+            <default>
+                <menu n="10">
+                    <label>Bergfalke II/55</label>
+                    <enabled type="bool">true</enabled>     
+                    <item>
+                        <label>Aerotow Settings</label>
+                        <binding>
+                            <command>nasal</command>
+                            <script>bergfalke.aerotow_dialog.open()</script>
+                        </binding>
+                    </item>    
+                    <item>
+                        <label>Winch Settings</label>
+                        <binding>
+                            <command>nasal</command>
+                            <script>bergfalke.winch_dialog.open()</script>
+                        </binding>
+                    </item>  
+                    <item>
+                        <label>Ground services</label>
+                        <binding>
+                            <command>nasal</command>
+                            <script>bergfalke.groundservice_dialog.open()</script>
+                        </binding>
+                    </item>   
+                    <item>
+                        <label>Simulation Options</label>
+                        <binding>
+                            <command>nasal</command>
+                            <script>bergfalke.options_dialog.open()</script>
+                        </binding>
+                    </item>  
+                    <item>
+                        <label>Select Livery</label>
+                        <binding>
+                        <command>nasal</command>
+                        <script>aircraft.livery.dialog.open()</script>
+                        </binding>
+                    </item>
+                </menu>
+            </default>
+        </menubar>
+
+        <!-- hide the 2D panel -->
+        
+        <panel>
+        <visibility archive="y">false</visibility>
+        </panel>
+
+        <!-- position the pilot viewpoint and angle -->
+    
+        <view n="0">
+            <name>Default</name>
+            <type>lookfrom</type>
+            <internal type="bool">true</internal>
+            <config>
+                <from-model type="bool">true</from-model>
+                <from-model-idx type="int">0</from-model-idx>
+                
+                <x-offset-m archive="y">0</x-offset-m>
+                <y-offset-m archive="y">0.15048</y-offset-m>
+                <z-offset-m archive="y">-2.97453</z-offset-m>
+                <pitch-offset-deg>-10</pitch-offset-deg>
+                <default-field-of-view-deg>55.0</default-field-of-view-deg>
+                <limits>
+                            <enabled type="bool">true</enabled>
+                            <left>
+                                    <heading-max-deg type="double">160</heading-max-deg>
+                                    <x-offset-max-m type="double">0.15</x-offset-max-m>
+                                    <x-offset-threshold-deg type="double">65</x-offset-threshold-deg>
+                            </left>
+                            <right>
+                                    <heading-max-deg type="double">160</heading-max-deg>
+                                    <x-offset-max-m type="double">0.15</x-offset-max-m>
+                                    <x-offset-threshold-deg type="double">65</x-offset-threshold-deg>
+                            </right>
+                </limits>
+            </config>
+        </view>
+        <view n="100">
+            <name>Left Below-Wing-Camera View</name>
+            <type>lookfrom</type>
+            <internal type="bool">true</internal>
+            <config>
+                <from-model type="bool">true</from-model>
+                <ground-level-nearplane-m type="double">0.5f</ground-level-nearplane-m>
+                <heading-offset-deg type="double">300</heading-offset-deg>
+                <x-offset-m archive="y" type="double">-2.14403</x-offset-m>
+                <y-offset-m archive="y" type="double">-0.03605</y-offset-m>
+                <z-offset-m archive="y" type="double">-1.32672</z-offset-m>
+                <default-heading-offset-deg>300</default-heading-offset-deg>
+                <pitch-offset-deg>-17.1</pitch-offset-deg>
+                <default-field-of-view-deg>120.0</default-field-of-view-deg>
+            </config>
+        </view>
+        <view n="101">
+            <name>Right Winglet Camera View</name>
+            <type>lookfrom</type>
+            <internal type="bool">true</internal>
+            <config>
+                <from-model type="bool">true</from-model>
+                <ground-level-nearplane-m type="double">0.5f</ground-level-nearplane-m>
+                <heading-offset-deg type="double">90</heading-offset-deg>
+                <x-offset-m archive="y" type="double">7.36049</x-offset-m>
+                <y-offset-m archive="y" type="double">0.46259</y-offset-m>
+                <z-offset-m archive="y" type="double">-0.90421</z-offset-m>
+                <default-heading-offset-deg>90</default-heading-offset-deg>
+                <pitch-offset-deg>00</pitch-offset-deg>
+                <default-field-of-view-deg>120.0</default-field-of-view-deg>
+            </config>
+        </view>
+        <view n="102">
+            <name>Tail Camera View</name>
+            <type>lookfrom</type>
+            <internal type="bool">true</internal>
+            <config>
+                <from-model type="bool">true</from-model>
+                <ground-level-nearplane-m type="double">0.5f</ground-level-nearplane-m>
+                <heading-offset-deg type="double">0</heading-offset-deg>
+                <x-offset-m archive="y" type="double">0.0</x-offset-m>
+                <y-offset-m archive="y" type="double">0.9713</y-offset-m>
+                <z-offset-m archive="y" type="double">2.61083</z-offset-m>
+                <default-heading-offset-deg>0</default-heading-offset-deg>
+                <pitch-offset-deg>-10</pitch-offset-deg>
+                <default-field-of-view-deg>120.0</default-field-of-view-deg>
+            </config>
+        </view>
+        <view n="103">
+            <name>Copilot/Instructor</name>
+            <type>lookfrom</type>
+            <internal type="bool">true</internal>
+            <config>
+                <from-model type="bool">true</from-model>
+                <ground-level-nearplane-m type="double">0.5f</ground-level-nearplane-m>
+                <heading-offset-deg type="double">0</heading-offset-deg>
+                <x-offset-m archive="y" type="double">0.0</x-offset-m>
+                <y-offset-m archive="y" type="double">0.25562</y-offset-m>
+                <z-offset-m archive="y" type="double">-1.98081</z-offset-m>
+                <default-heading-offset-deg>0</default-heading-offset-deg>
+                <pitch-offset-deg>-10</pitch-offset-deg>
+                <default-field-of-view-deg>60.0</default-field-of-view-deg>
+            </config>
+        </view>
+
+
+        <view n="1">
+                <config>
+                        <target-z-offset-m archive="y" type="double">-1.05</target-z-offset-m>
+                </config>
+        </view>
+
+        <view n="2">
+                <config>
+                        <target-z-offset-m archive="y" type="double">-1.05</target-z-offset-m>
+                </config>
+        </view>
+
+        <view n="3">
+                <config>
+                        <target-z-offset-m archive="y" type="double">-1.05</target-z-offset-m>
+                </config>
+        </view>
+
+        <view n="4">
+                <config>
+                        <target-z-offset-m archive="y" type="double">-1.05</target-z-offset-m>
+                </config>
+        </view>
+
+        <view n="5">
+                <config>
+                        <target-z-offset-m archive="y" type="double">-1.05</target-z-offset-m>
+                </config>
+        </view>
+
+        <view n="6">
+                <config>
+                        <target-z-offset-m archive="y" type="double">-1.05</target-z-offset-m>
+                </config>
+        </view>
+
+
+    
+        <hitches>
+            <!-- make sure some properties do exist, when the list for multiplayer transfere is defined-->
+            <!-- they need to be in the same value, as they are initilized in the FDM, to get the same values after reset
+                    should fix this somehow-->
+            <hook-open type="bool">false</hook-open>
+            <aerotow>
+                <tow>
+                    <length type="float">60</length>
+                    <elastic-constant type="float">10000</elastic-constant>
+                    <weight-per-m-kg-m type="float">1</weight-per-m-kg-m>
+                    <dist type="float">1</dist>
+                    <connected-to-property-node type="bool"/>
+                    <brake-force type="float">100000</brake-force>
+                    <connected-to-ai-or-mp-callsign type="string">*</connected-to-ai-or-mp-callsign>
+                    <end-force-x type="float">-3.50</end-force-x>
+                    <end-force-y type="float">0</end-force-y>
+                    <end-force-z type="float">0</end-force-z>
+                </tow>
+                <speed-in-tow-direction type="float">0</speed-in-tow-direction>
+                <open type="bool">true</open>
+                <is-slave type="bool">false</is-slave>
+            </aerotow>
+            <winch>
+                <automatic-release-angle-deg type="float">90.0</automatic-release-angle-deg>
+            </winch>
+        </hitches>
+
+        <flight-recorder>
+                <replay-config type="int">0</replay-config>
+                <config n="0" include="/Aircraft/Generic/flightrecorder/generic-glider.xml">
+                        <!-- Add some custom properties -->
+
+                        <signal>
+                                <type>float</type>
+                                <property type="string">/velocities/groundspeed-kt</property>
+                        </signal>
+                        <signal>
+                                <type>float</type>
+                                <property type="string">/accelerations/pilot-g</property>
+                        </signal>
+
+                        <!-- The ASK13 uses some "virtual" gear (contact points).
+                                Their "wow" properties need to be recorded. -->
+                        <signal>
+                                <type>bool</type>
+                                <property type="string">/gear/gear[1]/wow</property>
+                        </signal>
+                        <signal>
+                                <type>bool</type>
+                                <property type="string">/gear/gear[2]/wow</property>
+                        </signal>
+                        <signal>
+                                <type>bool</type>
+                                <property type="string">/gear/gear[3]/wow</property>
+                        </signal>
+                        <signal>
+                                <type>bool</type>
+                                <property type="string">/gear/gear[4]/wow</property>
+                        </signal>
+                        <signal>
+                                <type>bool</type>
+                                <property type="string">/sim/hitches/winch/open</property>
+                        </signal>
+                </config>
+        </flight-recorder>
+    </sim>
+    
+    <controls>
+            <ground-handling type="bool">false</ground-handling>
+            <flight>
+                <elevator-trim>0.0</elevator-trim> <!-- controllable -->
+                <rudder2 type="double">0</rudder2>
+            </flight>
+            <engines>
+                <engine>
+                    <throttle>1.0</throttle>
+                </engine>
+            </engines>
+            <winch>
+                    <place type="bool">false</place>
+            </winch>
+            <aerotow>
+                    <find-aircraft type="bool">false</find-aircraft>
+            </aerotow>
+    </controls>
+
+    <input>
+            <keyboard>
+                    <key n="21">
+                        <name>Ctrl-U</name>
+                        <desc>[Cheat] Add 1000ft of emergency altitude</desc>
+                        <binding>
+                            <command>property-adjust</command>
+                            <property>/position/altitude-ft</property>
+                            <step type="double">1000.0</step>
+                        </binding>
+                        <binding>
+                            <command>property-assign</command>
+                            <property>/sim/startup/onground</property>
+                            <value type="bool">false</value>
+                        </binding>
+                        <binding>
+                            <command>property-assign</command>
+                            <property>/sim/multiplay/chat</property>
+                            <value>I used Ctrl-u</value>
+                        </binding>
+                    </key>
+                    <key n="84">
+                        <name>T</name>
+                        <desc>Toggle chat message - Time</desc>
+                        <binding>
+                            <command>nasal</command>
+                            <script>
+                                time=getprop("/sim/time/gmt-string");
+                                msg="I took off/landed at "~time;
+                                setprop("/sim/multiplay/chat", msg);</script>
+                        </binding>
+                    </key>
+                    <key n="127">
+                        <name>Delete</name>
+                        <desc>Toggle Reversers</desc>
+                        <binding>
+                            <condition>
+                                <less-than>
+                                    <property>controls/engines/engine[0]/throttle</property>
+                                    <value>0.1</value>
+                                </less-than>
+                            </condition>
+                            <command>property-toggle</command>
+                            <property>controls/engines/engine[0]/reverser</property>
+                        </binding>
+                    </key>
+                    <key n="23">
+                        <name>Ctrl-w</name>
+                        <desc>Place winch in front of aircraft</desc>
+                        <binding>
+                            <command>nasal</command>
+                            <script>towing.setWinchPositionAuto()</script>
+                        </binding>
+                    </key>
+                    <key n="87">
+                        <name>W</name>
+                        <desc>Increase winch speed</desc>
+                        <binding>
+                            <command>nasal</command>
+                            <script>
+                                throttle = getprop("/sim/hitches/winch/winch/rel-speed") + 0.05;
+                                if (throttle > 1) throttle = 1;
+                                setprop("/sim/hitches/winch/winch/rel-speed", throttle);
+                                speed = throttle * getprop("/sim/hitches/winch/winch/max-speed-m-s");
+                                force = getprop("/sim/hitches/winch/force");
+                                gui.popupTip(sprintf("Winch throttle %d%%, speed %0.2f m/s, force %0.2f", throttle * 100, speed, force));
+                            </script>
+                        </binding>
+                    </key>
+                    <key n="119">
+                        <name>w</name>
+                        <desc>Decrease winch speed</desc>
+                        <binding>
+                            <command>nasal</command>
+                            <script>
+                                throttle = getprop("/sim/hitches/winch/winch/rel-speed") - 0.05;
+                                if (0 > throttle) throttle = 0;
+                                setprop("/sim/hitches/winch/winch/rel-speed", throttle);
+                                speed = throttle * getprop("/sim/hitches/winch/winch/max-speed-m-s");
+                                force = getprop("/sim/hitches/winch/force");
+                                gui.popupTip(sprintf("Winch throttle %d%%, speed %0.2f m/s, force %0.2f", throttle * 100, speed, force));
+                            </script>
+                        </binding>
+                    </key>
+                    <key n="15">
+                        <name>Ctrl-o</name>
+                        <desc>Find aircraft for aerotow</desc>
+                        <binding>
+                            <command>property-assign</command>
+                            <property>/controls/aerotow/find-aircraft</property>
+                            <value type="bool">true</value>
+                        </binding>
+                        <mod-up>
+                            <binding>
+                                <command>property-assign</command>
+                                <property>/controls/aerotow/find-aircraft</property>
+                                <value type="bool">false</value>
+                            </binding>
+                        </mod-up>
+                    </key>
+                    <key n="111">
+                        <name>o</name>
+                        <desc>Open hook</desc>
+                        <binding>
+                            <command>property-assign</command>
+                            <property>/sim/hitches/hook-open</property>
+                            <value type="bool">true</value>
+                        </binding>
+                        <binding>
+                            <command>property-assign</command>
+                            <property>/sim/hitches/aerotow/open</property>
+                            <value type="bool">true</value>
+                        </binding>
+                        <binding>
+                            <command>property-assign</command>
+                            <property>/sim/hitches/winch/open</property>
+                            <value type="bool">true</value>
+                        </binding>
+                        <mod-up>
+                            <binding>
+                                <command>property-assign</command>
+                                <property>/sim/hitches/hook-open</property>
+                                <value type="bool">false</value>
+                            </binding>
+                        </mod-up>
+                    </key>
+            </keyboard>
+    </input>
+
+    <nasal>
+        <doors>
+            <file>Nasal/doors.nas</file>
+        </doors>
+        <bergfalke>
+            <file>Aircraft/Instruments-3d/glider/vario/ilec-sc7/ilec-sc7.nas</file>
+            <file>Nasal/wool-thread.nas</file>
+            <file>Nasal/AR3201.nas</file>
+            <file>Nasal/dialogs.nas</file>
+            <file>Nasal/groundhandling.nas</file>
+            <file>Nasal/liveries.nas</file>
+            <file>Nasal/jsoverride.nas</file>
+            <file>Nasal/wingbending.nas</file>
+        </bergfalke>
+    </nasal>
+  
+</PropertyList>
