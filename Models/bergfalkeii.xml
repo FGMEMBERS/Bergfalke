@@ -425,9 +425,9 @@
     <name>woolthread</name>
     <path>instruments/wool-thread/wool-thread.xml</path>
     <offsets>
-            <x-m>-2.55474</x-m>
+            <x-m>-3.27538</x-m>
             <y-m> 0</y-m>
-            <z-m>0.12099</z-m>
+            <z-m>0.14</z-m>
             <pitch-deg>0</pitch-deg>
     </offsets>	 
  </model>
